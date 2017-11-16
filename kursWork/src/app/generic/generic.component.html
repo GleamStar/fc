@@ -1,0 +1,22 @@
+<form autocomplete="off"  
+class="center-block auth-div" #genericForm="ngForm" 
+(ngSubmit)="submit(genericForm.value)" novalidate>
+  <fieldset>
+     <legend class="text-center h4">Name</legend>
+     
+     <div *ngFor="let input of inputs" [ngSwitch]="input.type" class="form-group">
+       <label [for]="input.value" >{{input.value}}  </label>
+       <input *ngSwitchCase="1" [ngClass]="setError(genericForm.form.get(input.value))"
+        [id]="input.value" type="text" (ngModel)="input.value" 
+        [name]="input.value" required  class="form-control" >
+       <input *ngSwitchCase="2" [ngClass]="setError(genericForm.form.get(input.value))"
+        [id]="input.value" type="text" (ngModel)="input.value" 
+        [name]="input.value" ngui-datetime-picker required  class="form-control" >
+     </div>
+
+     <div class="form-group" (mouseenter)="mouseoverSubmit=true" (mouseleave)="mouseoverSubmit=false">
+       <button type="submit" class="btn btn-primary form-control" [disabled]="genericForm.invalid"> OK </button>
+     </div>
+  </fieldset>
+</form>
+

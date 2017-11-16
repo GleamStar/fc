@@ -1,0 +1,45 @@
+
+/*==========  Desktop First Method  ==========*/
+
+  
+  
+  .error  {
+    border-bottom: 1px solid #E05C65;
+  }
+  
+  .error input:hover {
+    opacity:1.0;
+    box-shadow:none;
+  }
+  .error input:focus{
+    opacity:1.0;
+    box-shadow:none;
+  }
+  .error input:active{
+    opacity:1.0;
+    box-shadow:none;
+  }
+  
+  
+  /* Extra Small Devices, Phones */
+  @media only screen and (max-width : 480px) {
+    h4{
+      margin-bottom: 15px;
+    }
+    .auth-div{
+      width: 100%;
+      margin-top: 70px;
+      margin-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+  }
+
+  
+  legend{
+    border: none;
+    padding-bottom: 25px;
+    padding-top:  10px;
+  }
+  
