@@ -1,5 +1,7 @@
-export interface CustomForm {
-    value: string;
-    type: number;
-    url?: string;
+import { CustomInput } from './index';
+
+export interface CustomForm{
+   title: string;
+   postUrl: string;
+   inputs: CustomInput[];
 }

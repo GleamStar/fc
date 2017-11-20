@@ -1,0 +1,11 @@
+<div class="container">
+  <select (change)="onChange($event.target.value)" class="col-md-4 col-md-offset-4" class="form-control" id="forms"
+           [name]="forms">
+    <option *ngFor="let form of  forms;let i=index" [value]="i">
+          {{form.title}}
+    </option>
+  </select>
+    <app-generic-input class="col-md-4 col-md-offset-4" [postUrl]="currentForm.postUrl" [title]="currentForm.title" [inputs]="currentForm.inputs"></app-generic-input>
+</div>
+
+

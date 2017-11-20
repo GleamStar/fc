@@ -1,0 +1,168 @@
+<div class="container">
+    <table *ngIf="registrationCertificates | async as cert" class="table table-condensed">
+      <caption class="text-center">
+        RegistrationCertificate
+      </caption>
+      <thead>
+        <tr>
+          <th>Vin</th>
+          <th>DataContract </th>
+          <th>InsuranceMoneyLiveLimit</th>
+          <th>FranchiseSize</th>
+          <th>CarNumber</th>
+          <th>PoliceStiker</th>
+          <th>RegistrationCity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registrationCertificate of cert">
+          <td>
+            {{registrationCertificate?.vin}}
+          </td>
+          <td>
+            {{registrationCertificate?.dataContract}}
+          </td>
+          <td>
+            {{registrationCertificate?.insuranceMoneyLiveLimit}}
+          </td>
+          <td>
+            {{registrationCertificate?.franchiseSize}}
+          </td>
+          <td>
+            {{registrationCertificate?.carNumber}}
+          </td>
+          <td>
+            {{registrationCertificate?.policeStiker}}
+          </td>
+          <td>
+            {{registrationCertificate?.registrationCity}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <table *ngIf="documentTypes | async as d" class="table table-condensed">
+    <caption class="text-center">
+      DocumentType
+    </caption>
+    <thead>
+    <tr>
+      <th class="text-center">DocumentName</th>
+      <th class="text-center">documentTypeId</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of d">
+      <td class="text-center">
+        {{i.documentName}}
+      </td>
+      <td class="text-center">
+        {{i.documentTypeId}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table *ngIf="orders | async as o" class="table table-condensed">
+  <caption class="text-center">
+    Order
+  </caption>
+  <thead>
+  <tr >
+    <th class="text-center">OrderId</th>
+    <th class="text-center">Confirmation</th>
+    <th class="text-center">OrderDate</th>
+    <th class="text-center">UserInfoId</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let i of o">
+    <td class="text-center">
+      {{i.orderId}}
+    </td>
+    <td class="text-center">
+      {{i.confirmation}}
+    </td>
+    <td class="text-center">
+      {{i.orderDate}}
+    </td>
+    <td class="text-center">
+      {{i.userInfoId}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+  <table *ngIf="photos | async as p" class="table table-condensed">
+    <caption class="text-center">
+      Photo
+    </caption>
+    <thead>
+    <tr >
+      <th class="text-center">PhotoId</th>
+      <th class="text-center">ImageUrl</th>
+      <th class="text-center">DocumentTypeId</th>
+      <th class="text-center">OrderId</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of p">
+      <td class="text-center">
+        {{i.photoId}}
+      </td>
+      <td class="text-center">
+        {{i.imageUrl}}
+      </td>
+      <td class="text-center">
+        {{i.documentTypeId}}
+      </td>
+      <td class="text-center">
+        {{i.orderId}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table  class="table table-condensed">
+    <caption class="text-center">
+      UserInfo
+    </caption>
+    <thead>
+    <tr >
+      <th class="text-center">Name</th>
+      <th class="text-center">DataBirthday</th>
+      <th class="text-center">City</th>
+      <th class="text-center">Zip</th>
+      <th class="text-center">District</th>
+      <th class="text-center">Idcode</th>
+      <th class="text-center">PhoneNumber</th>
+      <th class="text-center">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of userInfoes | async">
+      <td class="text-center">
+        dfg
+        {{i.name}}
+      </td>
+      <td class="text-center">
+        {{i.dataBirthday}}
+      </td>
+      <td class="text-center">
+        {{i.city}}
+      </td>
+      <td class="text-center">
+        {{i.district}}
+      </td>
+      <td class="text-center">
+      {{i.zip}}
+    </td>
+      <td class="text-center">
+      {{i.idcode}}
+    </td>
+      <td class="text-center">
+        {{i.phoneNumber}}
+      </td>
+      <td class="text-center">
+        {{i.email}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

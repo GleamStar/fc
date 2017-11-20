@@ -1,22 +1,30 @@
-<form autocomplete="off"  
-class="center-block auth-div" #genericForm="ngForm" 
-(ngSubmit)="submit(genericForm.value)" novalidate>
+<form autocomplete="off" class="center-block auth-div" #genericForm="ngForm" (ngSubmit)="submit(genericForm)" novalidate>
   <fieldset>
-     <legend class="text-center h4">Name</legend>
-     
-     <div *ngFor="let input of inputs" [ngSwitch]="input.type" class="form-group">
-       <label [for]="input.value" >{{input.value}}  </label>
-       <input *ngSwitchCase="1" [ngClass]="setError(genericForm.form.get(input.value))"
-        [id]="input.value" type="text" (ngModel)="input.value" 
-        [name]="input.value" required  class="form-control" >
-       <input *ngSwitchCase="2" [ngClass]="setError(genericForm.form.get(input.value))"
-        [id]="input.value" type="text" (ngModel)="input.value" 
-        [name]="input.value" ngui-datetime-picker required  class="form-control" >
-     </div>
+    <legend class="text-center h4">{{title}}</legend>
 
-     <div class="form-group" (mouseenter)="mouseoverSubmit=true" (mouseleave)="mouseoverSubmit=false">
-       <button type="submit" class="btn btn-primary form-control" [disabled]="genericForm.invalid"> OK </button>
-     </div>
+    <div *ngFor="let input of inputs" [ngSwitch]="input.type" class="form-group">
+      <label [for]="input.value">{{input.value}} </label>
+      <input *ngSwitchCase="1" [ngClass]="setError(genericForm.form.get(input.value))" [id]="input.value" type="text" (ngModel)="input.value"
+        [name]="input.value" required class="form-control">
+      <input *ngSwitchCase="2" [ngClass]="setError(genericForm.form.get(input.value))" [id]="input.value" type="text" (ngModel)="genericForm[input.value]"
+        [name]="input.value" (valueChanged)="setDateValue(genericForm,input.value,$event)"
+        ngui-datetime-picker required class="form-control">
+      <select *ngSwitchCase="3" required class="form-control" [id]="input.value"
+        (ngModel)="input.value" [name]="input.value">
+        <option *ngFor="let item of  inputSelects[input.url] | async" [value]="item.id ">
+          {{item?.value}}
+        </option>
+      </select>
+      <input *ngSwitchCase="4" appOnlyNumbers="true" required [ngClass]="setError(genericForm.form.get(input.value))" [id]="input.value" type="number" (ngModel)="input.value"
+      [name]="input.value" required class="form-control">
+      <input *ngSwitchCase="5" appOnlyNumbers="true" [ngClass]="setError(genericForm.form.get(input.value))" [id]="input.value" required email (ngModel)="input.value"
+             [name]="input.value" required class="form-control">
+      <input *ngSwitchCase="6" appOnlyNumbers="true" [ngClass]="setError(genericForm.form.get(input.value))" [id]="input.value" type="password" required  (ngModel)="input.value"
+             [name]="input.value" required class="form-control">
+    </div>
+
+    <div class="form-group" (mouseenter)="mouseoverSubmit=true" (mouseleave)="mouseoverSubmit=false">
+      <button type="submit" class="btn btn-primary form-control" [disabled]="genericForm.invalid"> OK </button>
+    </div>
   </fieldset>
 </form>
-

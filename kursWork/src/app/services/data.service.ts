@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
 
-  private baseUrl = 'http://localhost:28162/api/';
+  private baseUrl = 'http://kurswork.azurewebsites.net/api/';
 
   constructor(private http: Http) {}
 
